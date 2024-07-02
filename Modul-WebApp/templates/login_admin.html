@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>login_admin.html</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_v3.css') }}">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+          <h1 class="logo">Prihlásenie administrátora</h1>
+
+        </div>
+      </header>
+      <div class="container">
+        {% block content %}
+        {% endblock %}
+      </div>
+
+    {% if error %}
+        <p style="color: red;" >{{ error }}</p>
+    {% endif %}
+    <form method="POST" action="/login_admin" class="login-form">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="password">Password:</label>
+        <input type="password" if="password" name="password" required><br><br>
+        <input type="submit" value="Login">
+    </form>
+</body>
+</html>

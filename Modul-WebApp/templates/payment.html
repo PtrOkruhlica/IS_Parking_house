@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><title>Parkovaci dom: Platba</title></title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_v4.css') }}">
+</head>
+
+<body>
+    <header>
+        <input type="hidden" id="ecv_vozidla" name="ecv_vozidla">
+        <input type="hidden" id="id_vozidla" name="id_vozidla">
+        <h1>Platba za parkovanie</h1>
+    </header>
+    <div class="container">
+        <img src="/static/images/Screenshot_8.png" alt="Car Image" class="car-image-left">
+        <form id="payment-form" method="POST" action="/payment">
+            <select id="license-plate" name="license-plate">
+                {% for plate in license_plates %}
+                <option value="{{ plate[1] }}">{{ plate[1] }}</option>
+                {% endfor %}
+            </select>
+            <div class="form-field">
+                <label for="cas-prichodu">Čas Prichodu:</label>
+                <input type="text" id="cas-prichodu" name="cas-prichodu" readonly>
+            </div>
+            <div class="form-field">
+                <label for="cas-odchodu">Čas Odchodu:</label>
+                <input type="text" id="cas-odchodu" name="cas-odchodu" readonly>
+            </div>
+            <div class="form-field">
+                <label for="price">Cena Eur:</label>
+                <input type="text" id="price" name="price" readonly>
+            </div>
+            <button id="confirm-button" type="submit">Zaplatiť</button>
+            
+        </form>
+        <img src="/static/images/Screenshot_8.png" alt="Car Image" class="car-image-right">
+    </div>
+        <button id="back-button" type="fancy-button">Späť</button>
+    <script>
+        document.getElementById('license-plate').addEventListener('change', function() {
+            var selectedValue = this.value;
+            document.getElementById('ecv_vozidla').value = selectedValue;
+        });
+
+        document.getElementById('license-plate').addEventListener('change', function() {
+            var selectedValue = this.value;
+            var xhr1 = new XMLHttpRequest();
+            xhr1.open('GET', '/get_id/' + selectedValue, true);
+            xhr1.onreadystatechange = function() {
+                if (xhr1.readyState == 4 && xhr1.status == 200) {
+                    var data = JSON.parse(xhr1.responseText);
+                    document.getElementById('id_vozidla').value = data.ID_Vozidla || "";
+                    var id_vozidla = data.ID_Vozidla || "";
+                    var xhr2 = new XMLHttpRequest();
+                    xhr2.open('GET', '/get_cas_prichodu/' + id_vozidla, true);
+                    xhr2.onreadystatechange = function() {
+                        if (xhr2.readyState == 4 && xhr2.status == 200) {
+                            var casPrichoduData = JSON.parse(xhr2.responseText);
+                            document.getElementById('cas-prichodu').value = casPrichoduData.cas_prichodu || "";
+                        }
+                    };
+                    xhr2.send();
+
+                    var xhr3 = new XMLHttpRequest();
+                    xhr3.open('GET', '/get_cas_odchodu/' + id_vozidla, true);
+                    xhr3.onreadystatechange = function() {
+                        if (xhr3.readyState == 4 && xhr3.status == 200) {
+                            var casOdchoduData = JSON.parse(xhr3.responseText);
+                            document.getElementById('cas-odchodu').value = casOdchoduData.cas_odchodu || "";
+                        }
+                    };
+                    xhr3.send();
+                    // Fetch and update the value of price
+                    var xhr4 = new XMLHttpRequest();
+                    xhr4.open('GET', '/get_price/' + data.ID_Vozidla, true);
+                    xhr4.onreadystatechange = function() {
+                        if (xhr4.readyState == 4 && xhr4.status == 200) {
+                            var priceData = JSON.parse(xhr4.responseText);
+                            document.getElementById('price').value = priceData.price;
+                        }
+                    }
+                };
+                xhr4.send();
+            };
+            xhr1.send();
+        });
+        document.getElementById('back-button').addEventListener('click', function() {
+            window.location.href = '/home';
+            });
+    </script>
+    {% if message %}
+    <div id="payment-message" class="message">{{ message }}</div>
+    {% endif %}
+</body>
+</html>
