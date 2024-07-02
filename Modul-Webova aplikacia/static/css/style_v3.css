@@ -1,0 +1,97 @@
+/* style_v3.css */
+
+body {
+    background-color: #0e548d; /* Background color */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #DFB887; /* Dark background color for header */
+    padding: 20px 0;
+    text-align: center;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.logo {
+    color: #000000; /* White logo text color */
+}
+
+.login-container {
+    width: 50%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff; /* White background for login container */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Shadow effect */
+}
+
+.login-form {
+    text-align: center;
+    margin-top: 90px;
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 36px;
+    font-weight: bold;
+    color: #333333; /* Dark gray label text color */
+    background-image: linear-gradient(to bottom, #ffdb4d 50%, #eb9028 100%);
+    width: 20%;
+    margin-left: 770px;
+    border-radius: 20px;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"],
+.login-form input[type="submit"] {
+    width: 20%; /* Updated width to 90% */
+    padding: 30px;
+    margin-bottom: 20px;
+    border: 5px solid #cccccc; /* Light gray border */
+    border-radius: 20px;
+    box-sizing: border-box;
+    font-size: 36px;
+}
+
+.login-form input[type="submit"] {
+    background-color: #4caf50; /* Green button background */
+    color: #000000; /* White text color */
+    font-size: 46px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-form input[type="submit"]:hover {
+    background-color: #45a049; /* Darker green background on hover */
+}
+
+.error-message {
+    color: #ff0000; /* Red error message text color */
+    text-align: center;
+}
+
+#back-button {
+    display: flex;
+    justify-content: flex-start; /* Align text to the left */
+    align-items: center; /* Center vertically */
+    background-image: linear-gradient(to bottom, #ffdb4d 40%, #eb9028 100%);
+    color: black; /* Black text color */
+    margin-bottom: 20px; /* Add vertical space between Back and Pay buttons */
+    width: 200px; /* Set width of Back button */
+    height: 40px; /* Height of the text fields */
+    margin-right: 20px; /* Add space between Back and Pay buttons */
+    font-size: 36px; /* Font size */
+    padding-left: 60px; /* Add padding to space between text and button edge */
+    border: none; /* Remove button border */
+    cursor: pointer; /* Show pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+    line-height: 40px; /* Center text vertically */
+    border-radius: 40px;
+}

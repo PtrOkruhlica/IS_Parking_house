@@ -1,0 +1,114 @@
+table.rosyBrownTable {
+    border: 4px solid #d4bd8b;/*#BA8697;*/
+    background-color: #555555;
+    width: 400px;
+    text-align: center;
+    border-collapse: collapse;
+    margin-top:45px; 
+    margin-left: 50px;
+  }
+  table.rosyBrownTable td, table.rosyBrownTable th {
+    border: 1px solid #555555;
+    padding: 6px 8px;
+  }
+  table.rosyBrownTable tbody td {
+    font-size: 13px;
+    color: #FFFFFF;
+  }
+  table.rosyBrownTable thead {
+    background: #d4bd8b;/*#EBA9BF;*/
+    border-bottom: 1px solid #d4bd8b;/*#444444;*/
+  }
+  table.rosyBrownTable thead th {
+    font-weight: bold;
+    text-align: center;
+    border-left: 0px solid #d4bd8b;/*#EBA9BF;*/
+  }
+  table.rosyBrownTable thead th:first-child {
+    border-left: none;
+  }
+  
+  table.rosyBrownTable tfoot {
+    font-weight: bold;
+    background: #d4bd8b;/*#BA8697;*/
+    border-top: 1px solid #444444;
+  }
+  table.rosyBrownTable tfoot .links {
+    text-align: right;
+  }
+  table.rosyBrownTable tfoot .links a{
+    display: inline-block;
+    background: #FFFFFF;
+    color: #444444;
+    padding: 2px 8px;
+    border-radius: 5px;
+  }
+
+.table-container {
+    float: right;
+    margin-left: 80px; /* Adjust the margin as needed */
+    margin-top:50px; 
+}
+
+.blueTable {
+    border: 1px solid #A48E29;
+    background-color: #59ca25;
+    width: 5%;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.blueTable td, .blueTable th {
+    border: 4px solid #000000;
+    padding: 5px 2px;
+}
+
+.blueTable tbody td {
+    font-size: 13px;
+    font-weight: bold;
+    color: #0C0C0C;
+}
+
+.blueTable tr:nth-child(even) {
+    background: #59ca25;
+}
+
+.blueTable td:nth-child(even) {
+    background: #59ca25;
+}
+
+.blueTable thead {
+    background: #EB9028;
+    background: -moz-linear-gradient(top, #f0ac5e 0%, #ed9b3d 66%, #EB9028 100%);
+    background: -webkit-linear-gradient(top, #f0ac5e 0%, #ed9b3d 66%, #EB9028 100%);
+    background: linear-gradient(to bottom, #f0ac5e 0%, #ed9b3d 66%, #EB9028 100%);
+    border-bottom: 2px solid #444444;
+}
+
+.blueTable thead th {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+    border-left: 2px solid #D0E4F5;
+}
+
+.blueTable thead th:first-child {
+    border-left: none;
+}
+
+.blueTable tfoot td {
+    font-size: 14px;
+}
+
+.blueTable tfoot .links {
+    text-align: right;
+}
+
+.blueTable tfoot .links a {
+    display: inline-block;
+    background: #1C6EA4;
+    color: #FFFFFF;
+    padding: 2px 8px;
+    border-radius: 5px;
+}
